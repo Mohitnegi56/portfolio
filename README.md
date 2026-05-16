@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# 🚀 Mohit Negi Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern and responsive portfolio website showcasing my skills, projects, resume, and contact information.
 
-## Available Scripts
+🌐 **Live Demo:** https://your-portfolio.vercel.app  
+📧 **Email:** cse24135@iiitkalyani.ac.in  
+💻 **GitHub:** https://github.com/Mohitnegi56  
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Animated hero section with typewriter effect
+- Skills carousel
+- Project showcase with GitHub/live links
+- Resume download
+- Functional contact form using Resend API
+- Fully responsive design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Frontend:** React.js, React Bootstrap, Bootstrap 5, CSS3  
+**Backend:** Node.js, Express.js, Resend API  
+**Deployment:** Vercel (Frontend), Render (Backend)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Featured Projects
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 📊 WhatsApp Chat Analyzer
+- 📚 Book Recommendation System
+- 🤖 Enterprise Knowledge Copilot (RAG)
+- 🧠 LangGraph AI Chatbot
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Environment Variables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create a `.env` file:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```env
+RESEND_API_KEY=your_resend_api_key
+EMAIL_USER=your_email@gmail.com
+PORT=5000
+REACT_APP_API_URL=https://your-backend.onrender.com
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Run Locally
+```
+git clone https://github.com/Mohitnegi56/portfolio.git
+cd portfolio
+npm install
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Run backend:
 
-## Learn More
+```
+node server.js
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📬 Contact Form
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The contact form sends emails directly to my inbox using Resend API.
 
-### Code Splitting
+## 🤝 Connect With Me
+GitHub: https://github.com/Mohitnegi56
+Email: shashinegi597@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##⭐ Support
+If you like this project, consider giving it a ⭐ on GitHub.
