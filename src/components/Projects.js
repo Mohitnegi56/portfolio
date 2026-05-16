@@ -56,6 +56,14 @@ export const Projects = () => {
   ];
 
   // Filtered Categories
+  const featuredProjects = allProjects.filter(
+    (project) =>
+      project.title === "WhatsApp Chat Analyzer" ||
+      project.title === "Book Recommendation System" ||
+      project.title === "Enterprise Knowledge Copilot" ||
+      project.title === "LangGraph AI Chatbot"
+  );
+
   const dataScienceProjects = allProjects.filter(
     (project) =>
       project.title === "WhatsApp Chat Analyzer" ||
@@ -136,7 +144,7 @@ export const Projects = () => {
                   {/* Featured Projects */}
                   <Tab.Pane eventKey="first">
                     <Row>
-                      {allProjects.map((project, index) => (
+                      {featuredProjects.map((project, index) => (
                         <ProjectCard
                           key={index}
                           {...project}
