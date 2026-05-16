@@ -52,6 +52,7 @@ export const Contact = () => {
         });
       }
     } catch (error) {
+      console.error("Contact Form Error:", error);
       setButtonText("Send Message");
       setStatus({
         success: false,

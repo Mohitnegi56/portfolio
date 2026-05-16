@@ -27,11 +27,19 @@ const contactEmail = nodemailer.createTransport({
 /* =========================
    VERIFY TRANSPORTER
 ========================= */
-contactEmail.verify((error) => {
+contactEmail.sendMail(mail, (error) => {
   if (error) {
-    console.log("Email configuration error:", error);
+    console.log("Email Error:", error);
+
+    res.status(500).json({
+      code: 500,
+      status: error.message,
+    });
   } else {
-    console.log("Ready to send emails");
+    res.status(200).json({
+      code: 200,
+      status: "Message Sent Successfully",
+    });
   }
 });
 
