@@ -2,7 +2,7 @@
 
 A modern and responsive portfolio website showcasing my skills, projects, resume, and contact information.
 
-🌐 **Live Demo:** https://your-portfolio.vercel.app  
+🌐 **Live Demo:** https://portfolio-nine-peach-51.vercel.app/
 📧 **Email:** cse24135@iiitkalyani.ac.in  
 💻 **GitHub:** https://github.com/Mohitnegi56  
 
