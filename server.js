@@ -1,82 +1,54 @@
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 require("dotenv").config();
 
 const app = express();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Health check route
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 app.get("/", (req, res) => {
   res.send("Portfolio Backend is Running Successfully 🚀");
 });
 
-// Create transporter
-const contactEmail = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  family: 4, // Force IPv4
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
+app.post("/contact", async (req, res) => {
+  try {
+    const { firstName, lastName, email, phone, message } = req.body;
 
-// Verify transporter
-contactEmail.verify((error) => {
-  if (error) {
-    console.log("Verify Error:", error);
-  } else {
-    console.log("Ready to Send Emails");
+    const fullName = `${firstName} ${lastName}`;
+
+    const data = await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: [process.env.EMAIL_USER || "your_email@gmail.com"],
+      subject: `Portfolio Contact Form - ${fullName}`,
+      replyTo: email,
+      html: `
+        <h2>New Portfolio Message</h2>
+        <p><strong>Name:</strong> ${fullName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+    });
+
+    res.status(200).json({
+      code: 200,
+      status: "Message Sent Successfully",
+      data,
+    });
+  } catch (error) {
+    console.error("Resend Error:", error);
+
+    res.status(500).json({
+      code: 500,
+      status: error.message,
+    });
   }
 });
 
-// Contact API route
-app.post("/contact", (req, res) => {
-  const { firstName, lastName, email, phone, message } = req.body;
-
-  const fullName = `${firstName} ${lastName}`;
-
-  const mail = {
-    from: `\"${fullName}\" <${process.env.EMAIL_USER}>`,
-    replyTo: email,
-    to: process.env.EMAIL_USER,
-    subject: `Portfolio Contact Form - ${fullName}`,
-    html: `
-      <h2>New Portfolio Message</h2>
-      <p><strong>Name:</strong> ${fullName}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message}</p>
-    `,
-  };
-
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      console.log("Email Error:", error);
-
-      res.status(500).json({
-        code: 500,
-        status: error.message,
-      });
-    } else {
-      res.status(200).json({
-        code: 200,
-        status: "Message Sent Successfully",
-      });
-    }
-  });
-});
-
-// Start server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
