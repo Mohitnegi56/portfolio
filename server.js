@@ -4,90 +4,73 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
-const router = express.Router();
 
-/* =========================
-   MIDDLEWARE
-========================= */
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/", router);
 
-/* =========================
-   NODEMAILER TRANSPORTER
-========================= */
+// Health check route
+app.get("/", (req, res) => {
+  res.send("Portfolio Backend is Running Successfully 🚀");
+});
+
+// Create transporter
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Use Gmail App Password
+    pass: process.env.EMAIL_PASS,
   },
 });
 
-/* =========================
-   VERIFY TRANSPORTER
-========================= */
-contactEmail.sendMail(mail, (error) => {
+// Verify transporter
+contactEmail.verify((error) => {
   if (error) {
-    console.log("Email Error:", error);
-
-    res.status(500).json({
-      code: 500,
-      status: error.message,
-    });
+    console.log("Verify Error:", error);
   } else {
-    res.status(200).json({
-      code: 200,
-      status: "Message Sent Successfully",
-    });
+    console.log("Ready to Send Emails");
   }
 });
 
-/* =========================
-   CONTACT ROUTE
-========================= */
-router.post("/contact", async (req, res) => {
-  try {
-    const { firstName, lastName, email, phone, message } =
-      req.body;
+// Contact API route
+app.post("/contact", (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
 
-    const fullName = `${firstName} ${lastName}`;
+  const fullName = `${firstName} ${lastName}`;
 
-    const mail = {
-      from: `"${fullName}" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
-      to: process.env.EMAIL_USER,
-      subject: `Portfolio Contact Form - ${fullName}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    };
+  const mail = {
+    from: `\"${fullName}\" <${process.env.EMAIL_USER}>`,
+    replyTo: email,
+    to: process.env.EMAIL_USER,
+    subject: `Portfolio Contact Form - ${fullName}`,
+    html: `
+      <h2>New Portfolio Message</h2>
+      <p><strong>Name:</strong> ${fullName}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone || "Not Provided"}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `,
+  };
 
-    await contactEmail.sendMail(mail);
+  contactEmail.sendMail(mail, (error) => {
+    if (error) {
+      console.log("Email Error:", error);
 
-    res.status(200).json({
-      code: 200,
-      status: "Message Sent Successfully",
-    });
-  } catch (error) {
-    console.error("Send mail error:", error);
-
-    res.status(500).json({
-      code: 500,
-      status: "ERROR",
-      message: "Failed to send message",
-    });
-  }
+      res.status(500).json({
+        code: 500,
+        status: error.message,
+      });
+    } else {
+      res.status(200).json({
+        code: 200,
+        status: "Message Sent Successfully",
+      });
+    }
+  });
 });
 
-/* =========================
-   START SERVER
-========================= */
+// Start server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
