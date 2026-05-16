@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from "../assets/img/header-icon.jpg";
@@ -25,9 +25,9 @@ export const Banner = () => {
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [text, delta]);
+  }, [tick, delta]);
 
-  const tick = () => {
+  const tick = useCallback(() => {
     const i = loopNum % toRotate.length;
     const fullText = toRotate[i];
 
@@ -37,23 +37,19 @@ export const Banner = () => {
 
     setText(updatedText);
 
-    // Speed up when deleting
     if (isDeleting) {
       setDelta(100);
     }
 
-    // Word completed → pause, then start deleting
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
       setDelta(period);
-    }
-    // Word deleted → move to next word
-    else if (isDeleting && updatedText === "") {
+    } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum((prev) => prev + 1);
       setDelta(200);
     }
-  };
+  }, [text, isDeleting, loopNum, toRotate, period]);
 
   return (
     <section className="banner" id="home">
@@ -77,18 +73,15 @@ export const Banner = () => {
               decision-making.
             </p>
 
-            <button onClick={() => (window.location.href = '#connect')}>
-                Let’s Connect<ArrowRightCircle size={25} />
+            <button onClick={() => (window.location.href = "#connect")}>
+              Let’s Connect
+              <ArrowRightCircle size={25} />
             </button>
           </Col>
 
           {/* Right Image */}
           <Col xs={12} md={6} xl={5}>
-            <img
-              src={headerImg}
-              alt="Header"
-              className="img-fluid"
-            />
+            <img src={headerImg} alt="Header" className="img-fluid" />
           </Col>
         </Row>
       </Container>
