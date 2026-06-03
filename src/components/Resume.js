@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Download, Eye } from "react-bootstrap-icons";
-import resumePdf from "../assets/resume/one_page_resume.pdf";
+import resumePdf from "../assets/resume/mohitresume.pdf";
 
 export const Resume = () => {
   return (
