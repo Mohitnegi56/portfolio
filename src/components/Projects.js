@@ -27,7 +27,7 @@ export const Projects = () => {
       title: "Enterprise Knowledge Copilot",
       description: "RAG, LangChain, Vector Database",
       imageUrl: projImg3,
-      url: "https://chatbot-cqhq4vpuraen6vxo4g4nt4.streamlit.app/",
+      url: "https://document-copilot-iuapphdsyiwqpsjksjuaj5q.streamlit.app/",
     },
     {
       title: "LangGraph AI Chatbot",
