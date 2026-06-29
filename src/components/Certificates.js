@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Award, BoxArrowUpRight } from "react-bootstrap-icons";
+import nasscomPdf from "../assets/resume/nasscom_certificate.pdf";
 
 export const Certificates = () => {
   const certsList = [
@@ -18,7 +19,7 @@ export const Certificates = () => {
     {
       title: "AI - Data Engineering Analyst",
       issuer: "Skill India Digital Hub & NASSCOM",
-      link: "https://skill-india-dev.s3.ap-south-1.amazonaws.com/certificate_generic/uploaded_elements/2026062821444482/certificate_30abc684-c033-40a9-836b-caa3d4b7be33.pdf?response-content-disposition=inline&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260629T033719Z&X-Amz-SignedHeaders=host&X-Amz-Expires=2000&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260629%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=40d7d166c6c8b9f2e400a5aa830877a3beb3fa9a51b1ec25827cf0ea5119ecd0",
+      link: nasscomPdf,
       type: "Professional Certification"
     },
     {
