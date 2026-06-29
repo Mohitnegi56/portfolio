@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Download, Eye } from "react-bootstrap-icons";
-import resumePdf from "../assets/resume/one_page_resume.pdf";
+import resumePdf from "../assets/resume/Mohit_resume299.pdf";
 
 export const Resume = () => {
   return (
@@ -32,7 +32,7 @@ export const Resume = () => {
 
                 <a
                   href={resumePdf}
-                  download="one_page_resume.pdf"
+                  download="Mohit_resume299.pdf"
                   className="resume-btn"
                 >
                   <Download size={20} />

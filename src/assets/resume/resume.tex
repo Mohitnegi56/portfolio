@@ -1,0 +1,125 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{left=0.5in, top=0.4in, right=0.5in, bottom=0.4in}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Custom colors
+\definecolor{primary}{RGB}{0, 0, 0}
+\definecolor{secondary}{RGB}{80, 80, 80}
+\definecolor{links}{HTML}{0056b3}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=links,
+    urlcolor=links
+}
+
+% Section formatting
+\titleformat{\section}
+  {\bfseries\large\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+% Style configurations
+\pagestyle{empty}
+\setlist[itemize]{leftmargin=0.15in, nosep, after=\vspace{4pt}}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge \bfseries Mohit Negi} \\ \vspace{4pt}
+    \small
+    +91-8923645746 \ | \ Kotdwar, Uttarakhand \ | \ \href{mailto:cse24135@iiitkalyani.ac.in}{cse24135@iiitkalyani.ac.in} \\ \vspace{2pt}
+    \href{https://linkedin.com}{LinkedIn} \ | \ \href{https://github.com}{GitHub} \ | \ \href{https://codeforces.com}{Codeforces} \ | \ \href{https://kaggle.com}{Kaggle}
+\end{center}
+
+\vspace{-10pt}
+
+% Summary
+\section{Summary}
+Data Science, AI/ML, and Full-Stack Web Development enthusiast with strong skills in Python, SQL, React.js, Node.js, and Machine Learning. Experienced in building end-to-end data-driven applications, recommendation engines, RAG pipelines, and full-stack platforms.
+
+% Education
+\section{Education}
+\noindent \textbf{Indian Institute of Information Technology, Kalyani} \hfill 2024 -- Present \\
+B.Tech in Computer Science and Engineering \hfill CGPA: 9.03 / 10.0
+
+% Technical Skills
+\section{Technical Skills}
+\begin{description}[leftmargin=0pt, labelwidth=1.3in, align=left, itemsep=2pt, parseitemsep=0pt]
+    \item[\textbf{Languages:}] Python, C, C++, Java, JavaScript, SQL
+    \item[\textbf{Web Development:}] React.js, Node.js, Express.js, MongoDB, REST APIs, HTML5, CSS3, Bootstrap
+    \item[\textbf{Data Analysis \& AI:}] Pandas, NumPy, Scikit-learn, FAISS, NLP, Deep Learning, Exploratory Data Analysis (EDA)
+    \item[\textbf{LLM \& RAG Tools:}] LangChain, LangGraph, Vector Databases
+    \item[\textbf{Visualization \& Tools:}] Streamlit, Matplotlib, Seaborn, Git, GitHub
+    \item[\textbf{Core CS Concepts:}] Data Structures \& Algorithms (DSA), Object-Oriented Programming (OOP)
+\end{description}
+
+% Projects
+\section{Projects}
+
+\noindent \textbf{Zomato Delivery App (Full-Stack)} \hfill \href{https://tomato-delivery-frontend-16al.onrender.com}{[Live Link]} \\
+\textit{React, Node.js, Express, MongoDB, Render}
+\begin{itemize}
+    \item Designed and developed a fully responsive food delivery platform featuring a client-facing web application, backend API, and a dedicated admin management portal.
+    \item Implemented robust CRUD operations for real-time menu management, dynamic shopping cart updates, and secure user data storage.
+    \item Deployed the client, admin panel, and backend services separately on Render, utilizing environment variables for secure database connection.
+\end{itemize}
+
+\noindent \textbf{LangGraph AI Chatbot} \hfill \href{https://chatbot-cqhq4vpuraen6vxo4g4nt4.streamlit.app/}{[Live Link]} \\
+\textit{LangGraph, LangChain, Python, SQLite}
+\begin{itemize}
+    \item Developed a stateful, agentic conversational chatbot powered by LangGraph to handle multi-turn dialogs and cyclical flow logic.
+    \item Integrated session persistence and state management using an SQLite-backed memory saver to maintain conversation history across reloads.
+    \item Structured clean branching logic using state variables, enabling dynamic tool invocation based on user query context.
+\end{itemize}
+
+\noindent \textbf{Enterprise Knowledge Copilot (RAG)} \hfill \href{https://chatbot-cqhq4vpuraen6vxo4g4nt4.streamlit.app/}{[Live Link]} \\
+\textit{RAG, LangChain, FAISS, Streamlit}
+\begin{itemize}
+    \item Developed a Retrieval-Augmented Generation (RAG) assistant allowing users to upload documents and query knowledge bases.
+    \item Utilized text chunking and semantic search with FAISS vector database to retrieve context-aware answers efficiently.
+    \item Deployed the user interface on Streamlit, optimizing performance to return answers with references in under 2 seconds.
+\end{itemize}
+
+\noindent \textbf{Book Recommendation System} \hfill \href{https://book-recommender-system-5olv.onrender.com/}{[Live Link]} \\
+\textit{Machine Learning, Pandas, Cosine Similarity, Flask}
+\begin{itemize}
+    \item Built an end-to-end recommendation engine utilizing TF-IDF Vectorization and Cosine Similarity to recommend matches out of a database of 10K+ books.
+    \item Designed a lightweight Flask backend and a responsive user interface to handle real-time prediction requests.
+\end{itemize}
+
+\noindent \textbf{WhatsApp Chat Analyzer} \hfill \href{https://whatsappanalyser-7mxtgbpbvxsytrdynkujd5.streamlit.app/}{[Live Link]} \\
+\textit{Python, Regular Expressions, NLP, Streamlit}
+\begin{itemize}
+    \item Parsed and structured raw text data of 50K+ messages using regular expressions to extract timestamps, authors, and text.
+    \item Performed EDA and NLP analysis (Sentiment analysis, Word Cloud, activity heatmap) to visualize messaging trends.
+\end{itemize}
+
+% Leadership Experience
+\section{Leadership Experience}
+\noindent \textbf{AI/ML Lead} \ | \ GDG On Campus, IIIT Kalyani \hfill 2025 -- Present
+\begin{itemize}
+    \item Conducted hands-on technical workshops on Machine Learning, Deep Learning, and EDA for 100+ students.
+    \item Mentored university teams on AI research and Natural Language Processing projects.
+\end{itemize}
+
+\noindent \textbf{General Secretary (Technical Affairs)} \ | \ Gymkhana, IIIT Kalyani \hfill 2025 -- Present
+\begin{itemize}
+    \item Organized college coding hackathons, technical workshops, and coding challenges for over 200 participants.
+\end{itemize}
+
+% Achievements & Certifications
+\section{Achievements \& Certifications}
+\begin{itemize}
+    \item \textbf{2nd Runner-Up}, InnovateX Hackathon (GDG IIIT Kalyani) \hfill 2025
+    \item \textbf{Winner}, Botball Robotics Competition \& \textbf{2nd Runner-Up}, Maze Solver Robotics \hfill 2025
+    \item \textbf{Data Structure \& Algorithms}: Solved 200+ algorithmic challenges across Codeforces & LeetCode.
+    \item \textbf{Certification}: Data Analysis with Python -- freeCodeCamp.
+\end{itemize}
+
+\end{document}
