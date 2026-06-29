@@ -10,6 +10,7 @@ import { Resume } from './components/Resume';
 import { Contact } from './components/Contact';
 import { Chatbot } from './components/Chatbot';
 import { CursorEffect } from './components/CursorEffect';
+import { Certificates } from './components/Certificates';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -43,7 +44,7 @@ function App() {
 
     // Add scroll reveal selector targeting key sections
     const sectionsToReveal = document.querySelectorAll(
-      '.banner, .skill-bx, .project-bx, .resume-bx, .contact-form-box'
+      '.banner, .skill-bx, .project-bx, .resume-bx, .certificates-bx, .contact-form-box'
     );
     sectionsToReveal.forEach(section => {
       section.classList.add('reveal-on-scroll');
@@ -76,6 +77,7 @@ function App() {
       <Skills />
       <Projects />
       <Resume/>
+      <Certificates/>
       <Contact/>
       <Footer/>
       <Chatbot />
